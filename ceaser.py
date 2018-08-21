@@ -20,6 +20,8 @@ def encrypt():
             y = y + 1
         if(plaintext[i] == plainkey[y]):
             encryption = cipherkey[y]
+            f = open("encryption.txt", "a")
+            f.write(encryption)
             print(encryption, end='')
         i = i + 1
     print(" ")
@@ -42,6 +44,8 @@ def decrypt():
             y = y + 1
         if(plaintext[i] == plainkey[y]):
             encryption = cipherkey[y]
+            f = open("decryption.txt", "a")
+            f.write(encryption)
             print(encryption, end='')
         i = i + 1
     print(" ")
