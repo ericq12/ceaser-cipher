@@ -1,11 +1,11 @@
 import string
 import collections
-mode = input("press e for encrypting or d for decrypting\n")
+mode = input("press e for encryption or d for decryption\n")
 if(mode == "e"):
     #encrypt
-    plaintext = input("enter your message\n")
+    plaintext = input("enter your plaintext\n")
     x = len(plaintext)
-    shift = int(input("enter cipher\n"))
+    shift = int(input("enter the shift\n"))
     plainkey = collections.deque(string.ascii_lowercase)
     plainkey.rotate(-shift)
     cipherkey = list(plainkey)
@@ -26,9 +26,9 @@ if(mode == "e"):
 
 if(mode == "d"):
     #decrypt
-    plaintext = input("enter the message\n")
+    plaintext = input("enter the ciphertext\n")
     x = len(plaintext)
-    shift = int(input("enter cipher\n"))
+    shift = int(input("enter the shift\n"))
     plainkey = collections.deque(string.ascii_lowercase)
     plainkey.rotate(shift)
     cipherkey = list(plainkey)
