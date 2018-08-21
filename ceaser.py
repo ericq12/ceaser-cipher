@@ -10,6 +10,9 @@ if(mode == "e"):
     plainkey.rotate(-shift)
     cipherkey = list(plainkey)
     plainkey.rotate(shift)
+    plainkey.append(" ")
+    cipherkey.append(" ")
+    print(cipherkey)
     i = 0
     while (i < x):
         y = 0
@@ -30,6 +33,8 @@ if(mode == "d"):
     plainkey.rotate(shift)
     cipherkey = list(plainkey)
     plainkey.rotate(-shift)
+    plainkey.append(" ")
+    cipherkey.append(" ")
     i = 0
     while (i < x):
         y = 0
