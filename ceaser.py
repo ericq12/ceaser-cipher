@@ -1,7 +1,10 @@
 import string
 import collections
 mode = input("press e for encryption or d for decryption\n")
-plaintext = input("enter your message\n")
+plaintext = input("enter your message or file (put ! in front of a filename)\n")
+if(plaintext[0] == "!"):
+    f = open(plaintext[1:], "r")
+    plaintext=f.read()
 shift = int(input("enter the shift\n"))
 
 def encrypt():
