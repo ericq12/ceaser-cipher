@@ -31,9 +31,7 @@ def encrypt():
 
 def decrypt():
     #decrypt
-    # plaintext = input("enter the ciphertext\n")
     x = len(plaintext)
-    # shift = int(input("enter the shift\n"))
     plainkey = collections.deque(string.ascii_lowercase)
     plainkey.rotate(shift)
     cipherkey = list(plainkey)
