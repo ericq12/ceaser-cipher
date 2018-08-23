@@ -83,6 +83,7 @@ def decrypt():
             print(" ")
             shift = shift + 1
             k = k + 1
+    #shift decryption
     else:
         i = 0
         while (i < x):
