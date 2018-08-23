@@ -47,6 +47,7 @@ def decrypt():
     plainkey.rotate(-shift)
     brutefile = list(plainkey)
     brutefile.append("IGNORE")
+    #bruteforce
     if(shift == 0):
         k = 0
         while(k < 26):
@@ -71,16 +72,14 @@ def decrypt():
                     y = y + 1
                 if(plaintext[i] == plainkey[y]):
                     encryption = cipherkey[y]
-                    f = open("shift"+brutefile[k]+".txt", "a")
-                    f.write(encryption)
-                    if(k != "IGNORE"):
+                    if(brutefile[k] != "IGNORE"):
+                        f = open("shift"+brutefile[k]+".txt", "a")
+                        f.write(encryption)
                         print(encryption, end='')
                 i = i + 1
             print(" ")
             shift = shift + 1
             k = k + 1
-            f = open("shiftIGNORE.txt", "w")
-            f.write("ignore this file")
     else:
         i = 0
         while (i < x):
