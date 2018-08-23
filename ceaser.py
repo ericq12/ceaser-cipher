@@ -1,5 +1,9 @@
 import string
 import collections
+f = open("encryption.txt", "w")
+f.write("")
+f = open("decryption.txt", "w")
+f.write("")
 mode = input("press e for encryption or d for decryption\n")
 plaintext = input("enter your message or file (put ! in front of a filename)\n")
 if(plaintext[0] == "!"):
@@ -41,11 +45,16 @@ def decrypt():
     plainkey.rotate(shift)
     cipherkey = list(plainkey)
     plainkey.rotate(-shift)
-    brutefile = plainkey
-    brutefile.append("1")
+    brutefile = list(plainkey)
+    brutefile.append("IGNORE")
     if(shift == 0):
         k = 0
-        while(shift < 27):
+        while(k < 26):
+            f = open("shift"+brutefile[k]+".txt", "w")
+            f.write("")
+            k = k + 1
+        k = 0
+        while(shift < 26):
             plainkey.rotate(shift)
             cipherkey = list(plainkey)
             plainkey.rotate(-shift)
@@ -64,11 +73,14 @@ def decrypt():
                     encryption = cipherkey[y]
                     f = open("shift"+brutefile[k]+".txt", "a")
                     f.write(encryption)
-                    print(encryption, end='')
+                    if(k != "IGNORE"):
+                        print(encryption, end='')
                 i = i + 1
             print(" ")
             shift = shift + 1
             k = k + 1
+            f = open("shiftIGNORE.txt", "w")
+            f.write("ignore this file")
     else:
         i = 0
         while (i < x):
