@@ -4,8 +4,11 @@ f = open("encryption.txt", "w")
 f.write("")
 f = open("decryption.txt", "w")
 f.write("")
-mode = input("press e for encryption or d for decryption\n")
-plaintext = input("enter your message or file (put ! in front of a filename)\n")
+mode = input("Press e for encryption or d for decryption\n")
+if(mode != "e" or "d"):
+    print("Enter valid mode")
+    mode = input("Press e for encryption or d for decryption\n")
+plaintext = input("Enter your message or file (put ! in front of a filename)\n")
 if(plaintext[0] == "!"):
     f = open(plaintext[1:], "r")
     plaintext=f.read()
@@ -13,7 +16,7 @@ if(plaintext[0] == "!"):
 def encrypt():
     #encrypt
     x = len(plaintext)
-    shift = int(input("enter the shift\n"))
+    shift = int(input("Enter the shift\n"))
     plainkey = collections.deque(string.ascii_lowercase)
     plainkey.rotate(-shift)
     cipherkey = list(plainkey)
@@ -39,7 +42,7 @@ def encrypt():
 
 def decrypt():
     #decrypt
-    shift = int(input("enter the shift or press 0 for a brute attack\n"))
+    shift = int(input("Enter the shift or press 0 for a brute attack\n"))
     x = len(plaintext)
     plainkey = collections.deque(string.ascii_lowercase)
     plainkey.rotate(shift)
